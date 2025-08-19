@@ -32,3 +32,12 @@ bluenile/
 │── logging.conf              # configuration for logs
 │── pyproject.toml            # list of dependencies for poetry 
 └── README.md
+```
+
+1. **Scraping** :
+
+- The scraper runs on a single-node airflow instance
+- HTTP requests go through a [residential proxy service](https://oxylabs.io/) and query Bluenile's API endpoints at regular intervals
+- Raw data is stored in a GCS bucket
+  
+<img width="805" height="478" alt="image" src="https://github.com/user-attachments/assets/59c8f2e5-4911-43b1-8fe3-e38544e3ec5b" />
