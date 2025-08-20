@@ -1,6 +1,6 @@
 # AUTOMATED DATA PIPELINE FOR BLUENILE'S DIAMOND ASSORTMENT
 
-##**I. General overview of the project**
+## **I. General overview of the project**
 ---------
 ### **1. Project description and structure** : 
 
@@ -35,7 +35,7 @@ bluenile/
 └── README.md
 ```
 
-<br><br><br><br>
+<br><br><br>
 
 ### **2. Scraping** : 
 
@@ -45,7 +45,7 @@ bluenile/
   
 <img width="805" height="478" alt="image" src="https://github.com/user-attachments/assets/59c8f2e5-4911-43b1-8fe3-e38544e3ec5b" />
 
-<br><br><br><br>
+<br><br><br>
 
 ### **3. Processing and ingesting** : 
 - Transformation --> Raw files that land in the bucket trigger a Cloud Run function that parses, transforms and add metadata before storing them back in the bucket
@@ -53,7 +53,7 @@ bluenile/
 
 <img width="809" height="476" alt="image" src="https://github.com/user-attachments/assets/b029023c-1fc0-4bd0-874b-4cf82e7ceb7a" />
 
-<br><br><br><br>
+<br><br><br>
 
 ### **4. Modelling** : 
 - Once in Big Query, the modeling is fairly simple as the size of the dataset is limited. All tables are build using dataform, along with custom assertions to check for data consistency
@@ -62,7 +62,7 @@ bluenile/
 
 <img width="799" height="430" alt="image" src="https://github.com/user-attachments/assets/489254d0-1cc3-4916-8b28-fc904022fade" />
 
-<br><br><br><br>
+<br><br><br>
 
 ### **5. Visualizing** : 
 - A simple interactive dashboard built in Looker Studio displays aggregated data on the assortment and weekly sales
@@ -72,7 +72,19 @@ bluenile/
    <img width="1201" height="368" alt="image" src="https://github.com/user-attachments/assets/394092c3-03ef-4be6-8fe0-58741ed310df" />
    <br>
    <img width="1190" height="818" alt="image" src="https://github.com/user-attachments/assets/8e69507b-45ed-4695-a219-53f423cc59af" />
-   <br>
+
+<br><br><br>
+## **II. Technical stack and dependencies**
+---------
+
+<ins>Technical stack<ins>:
+- **Language:** Python 3.12
+- **Database:** PostgreSQL for Airflow metadata and BigQuery for project data
+- **Scraping:** Playwright, Oxylabs
+- **Datalake:** Google Cloud Storage
+- **ETL/ELT:** Google Cloud run functions, dataform 
+- **Infrastructure:** Docker, Docker Compose
+- **Visualization:** Looker studio
 
 
 
