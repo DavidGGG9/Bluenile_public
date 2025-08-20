@@ -85,8 +85,9 @@ bluenile/
 - **ETL/ELT:** Google Cloud run functions, dataform 
 - **Infrastructure:** Docker, Docker Compose
 - **Visualization:** Looker studio
-
+<br>
 <ins>Project dependencies<ins>:
+```text
 requires-python = ">=3.12,<3.13"
 dependencies = [
     "playwright (>=1.53.0,<2.0.0)",
@@ -98,6 +99,13 @@ dependencies = [
     "google-cloud-bigquery (>=3.35.1,<4.0.0)",
     "pytz (>=2025.2,<2026.0)"
 ]
+```
+
+<br><br><br>
+## **III. Current improvements**
+---------
+- **Speeding up the scraping by an order of magnitude:** The scraper currently scrapes all possible combinations of 'Price X Carat weight'. This brute force approach is slow and expensive as it requires to make thousands of requests to cover all possible combinations. Only 10% of the responses actually contain diamond information. A smarter approach consists in ranking request combinations based on whether or not they return diamond information or not. A 'Price X Carat weight' combination that does not return any record for several week will get assign a low score and will be have a high probability of being skipped in the next scraping task.
+- **Writing deployment scripts based on the needs of the client:** Deployment scripts are useful to automate the provisionning of cloud resources and to make the project more portable for the client.   
 
 
 
