@@ -86,6 +86,19 @@ bluenile/
 - **Infrastructure:** Docker, Docker Compose
 - **Visualization:** Looker studio
 
+<ins>Project dependencies<ins>:
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "playwright (>=1.53.0,<2.0.0)",
+    "python-dotenv (>=1.1.1,<2.0.0)",
+    "google-cloud-storage (>=3.2.0,<4.0.0)",
+    "pytest (>=8.4.1,<9.0.0)",
+    "apache-airflow (>=2.10.4, <3.0.0)",
+    "apache-airflow-providers-postgres (>=6.2.1,<7.0.0)",
+    "google-cloud-bigquery (>=3.35.1,<4.0.0)",
+    "pytz (>=2025.2,<2026.0)"
+]
+
 
 
 
