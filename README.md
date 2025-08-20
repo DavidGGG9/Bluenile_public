@@ -87,6 +87,7 @@ bluenile/
 - **Visualization:** Looker studio
 <br>
 <ins>Project dependencies<ins>:
+<br>
 ```text
 requires-python = ">=3.12,<3.13"
 dependencies = [
