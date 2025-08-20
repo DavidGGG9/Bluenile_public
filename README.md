@@ -1,6 +1,8 @@
-## AUTOMATED DATA PIPELINE FOR BLUENILE'S DIAMOND ASSORTMENT
+# AUTOMATED DATA PIPELINE FOR BLUENILE'S DIAMOND ASSORTMENT
 
-**Project description** : 
+##**I. General overview of the project**
+---------
+### **1. Project description and structure** : 
 
 This project aims at retrieving all diamond data from an online jewellery retailer called [Bluenile](https://www.bluenile.com/).
 - Raw data is scraped via playwright/Oxylabs and stored in a GCS bucket;
@@ -9,7 +11,6 @@ This project aims at retrieving all diamond data from an online jewellery retail
 
 
 
-**Project structure** : 
 ```text
 bluenile/
 │── cloud_function_1/         # processes raw data to ndjson, ready to be ingested into Big Query
@@ -36,7 +37,7 @@ bluenile/
 
 <br><br><br><br>
 
-1. **Scraping** :
+### **2. Scraping** : 
 
 - The scraper runs on a single-node airflow instance
 - HTTP requests go through a [residential proxy service](https://oxylabs.io/) and query Bluenile's API endpoints at regular intervals
@@ -46,7 +47,7 @@ bluenile/
 
 <br><br><br><br>
 
-2. **Processing and ingesting** :
+### **3. Processing and ingesting** : 
 - Transformation --> Raw files that land in the bucket trigger a Cloud Run function that parses, transforms and add metadata before storing them back in the bucket
 - Batch ingestion --> A second cloud run function, orchestrated with a scheduler job, scans the bucket every 4 hours and merges diamond records into the source tables in Big Query  
 
@@ -54,7 +55,7 @@ bluenile/
 
 <br><br><br><br>
 
-3. **Modeling the data** :
+### **4. Modelling** : 
 - Once in Big Query, the modeling is fairly simple as the size of the dataset is limited. All tables are build using dataform, along with custom assertions to check for data consistency
 - SCD table is built for changing prices and availability
 - Final cleaned tables display all data on the current Bluenile Assortment, as well as estimated historical sales of diamonds
@@ -63,7 +64,18 @@ bluenile/
 
 <br><br><br><br>
 
-4. **Dashboarding** :
-[TBC]
+### **5. Visualizing** : 
+- A simple interactive dashboard built in Looker Studio displays aggregated data on the assortment and weekly sales
+
+   <img width="1206" height="632" alt="image" src="https://github.com/user-attachments/assets/135be16d-884e-4d98-ab3f-f2d64edc1049" />
+   <br>
+   <img width="1201" height="368" alt="image" src="https://github.com/user-attachments/assets/394092c3-03ef-4be6-8fe0-58741ed310df" />
+   <br>
+   <img width="1190" height="818" alt="image" src="https://github.com/user-attachments/assets/8e69507b-45ed-4695-a219-53f423cc59af" />
+   <br>
+
+
+
+
 
  
