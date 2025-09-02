@@ -26,6 +26,8 @@ bluenile/
 │     │── utilities.py        # contains utility functions used by the scraper class and airflow tasks
 │── scripts/
 │     │── airflow_webserver_entrypoint.sh
+│     |── airflow_startup.sh
+|     |── airflow_shutdown.sh
 │── tests/                    # contains unit tests
 │── vm_deploy_v1/             # contains deployment scripts to provision resources 
 │── Dockerfile                # base image for the airflow scheduler
