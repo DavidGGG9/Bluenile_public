@@ -111,7 +111,8 @@ dependencies = [
 ---------
 - [x] **Speeding up the scraping by an order of magnitude:** The scraper currently scrapes all possible combinations of 'Price X Carat weight'. This brute force approach is slow and expensive as it requires to make thousands of requests to cover all possible combinations. Only 10% of the responses actually contain diamond information. A smarter approach consists in ranking request combinations based on whether or not they return diamond information or not. A 'Price X Carat weight' combination that does not return any record for several weeks will get assigned a low score and will have a high probability of being skipped in the next scraping iteration. This will reduce the scraping time and thus the VM uptime (i.e., the cloud cost).
 - [x] **Scheduling the start and stop of the VM as well as startup scripts for launching the airflow instance at start-up**
-- [ ] **Optimize the inserts of scraped data into Bigquery**. Inserts are currently done with a merge statement that scans the full source data on every merge. Each merge bills ~10Mb of data.
+- [ ] **Optimize the inserts of scraped data into Bigquery:** Inserts are currently done with a merge statement that scans the full source data on every merge. Each merge bills ~10Mb of data.
+- [ ] ** Integrate rapaport diamond report for base prices:** This will be useful for later machine learning tasks
 - [ ] **Writing deployment scripts based on the needs of the client:** Deployment scripts are useful to automate the provisionning of cloud resources and to make the project more portable for the client.   
 
 
